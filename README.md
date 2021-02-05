@@ -170,13 +170,15 @@ Con la función de ggplot nos ayudamos para crear historigramas de las frecuenci
 ![Rplot10](https://user-images.githubusercontent.com/77855207/107097515-1bfd0e80-67db-11eb-9300-da919f603126.png)
  
         ggplot(tmedia_pisco, aes(PARURO)) + geom_histogram(colour= 'blue')
-                
+![Rplot11](https://user-images.githubusercontent.com/77855207/107097749-a3e31880-67db-11eb-9f61-bcdcf6b24527.png)
+
         ggplot(tmedia_pisco, aes(COLQUEPATA)) + geom_histogram(colour= 'blue')
-        
-        
-        ggplot(tmedia_pisco, aes(CCATCCA)) + geom_histogram(colour= 'blue')
-        
-        
+![Rplot12](https://user-images.githubusercontent.com/77855207/107097878-f8869380-67db-11eb-97d3-966c5ad768c3.png)
+       
+        ggplot(tmedia_pisco, aes(CCATCCA)) + geom_histogram(colour= 'blue')      
+![Rplot13](https://user-images.githubusercontent.com/77855207/107097931-0e945400-67dc-11eb-81ab-5c9e0f9f5971.png)
+
         ggplot(tmedia_pisco, aes(CAICAY)) + geom_histogram(colour= 'blue')
-        
+![Rplot13](https://user-images.githubusercontent.com/77855207/107097931-0e945400-67dc-11eb-81ab-5c9e0f9f5971.png)  
+
 
