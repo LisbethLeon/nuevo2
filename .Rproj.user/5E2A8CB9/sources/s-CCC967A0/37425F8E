@@ -1,0 +1,32 @@
+{
+    "id": "37425F8E",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1612498655319.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "expression": "tmin_pisco",
+        "caption": "tmin_pisco",
+        "totalObservations": 432,
+        "displayedObservations": 432,
+        "variables": 6,
+        "cacheKey": "1A6CEF89",
+        "object": "tmin_pisco",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=tmin_pisco&cache_key=1A6CEF89&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2564120289936,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1612498655319,
+    "read_only": false,
+    "read_only_alternatives": []
+}

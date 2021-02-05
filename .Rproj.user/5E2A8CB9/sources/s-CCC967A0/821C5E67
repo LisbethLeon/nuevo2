@@ -1,0 +1,32 @@
+{
+    "id": "821C5E67",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1612491692466.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "expression": "long_lat",
+        "caption": "long_lat",
+        "totalObservations": "5",
+        "displayedObservations": "5",
+        "variables": "3",
+        "cacheKey": "8999C016",
+        "object": "long_lat",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=long_lat&cache_key=8999C016&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 8238619110841544303,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1612491692466,
+    "read_only": false,
+    "read_only_alternatives": []
+}

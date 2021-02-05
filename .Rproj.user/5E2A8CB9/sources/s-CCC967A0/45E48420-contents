@@ -1,0 +1,26 @@
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+tmedia_pisco <- read.csv("PROJECT_DATA/tmedia.csv", header = T, sep = ",") %>%
+tibble() %>%
+dplyr::select(-X) %>%
+mutate(fecha = seq(as.Date("1981-01-01"), as.Date("2016-12-01"), by = "month"))
+tmax_pisco <- read.csv("PROJECT_DATA/TMAX_SALIDA.csv", header = T, sep = ",") %>%
+tibble() %>%
+dplyr::select(-X) %>%
+mutate(fecha = seq(as.Date("1981-01-01"), as.Date("2016-12-01"), by = "month"))
+View(tmax_pisco)
+tmedia_pisco <- read.csv("PROJECT_DATA/tmedia.csv", header = T, sep = ",") %>%
+tibble() %>%
+dplyr::select(-X) %>%
+mutate(fecha = seq(as.Date("1981-01-01"), as.Date("2016-12-01"), by = "month"))
+View(tmax_pisco)
+tmedia_pisco <- read.csv("PROJECT_DATA/tmedia.csv", header = T, sep = ",") %>%
+tibble() %>%
+dplyr::select(-X) %>%
+mutate(fecha = seq(as.Date("1981-01-01"), as.Date("2016-12-01"), by = "month"))
+View(tmedia_pisco)
+install.packages(c("raster", "ncdf4"))
+install.packages(c("tidyverse", "ggplot2", "dplyr"))
+setwd()
+getwd()
