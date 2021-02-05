@@ -179,4 +179,23 @@ Con la función de ggplot nos ayudamos para crear historigramas de las frecuenci
         
         
         ggplot(tmedia_pisco, aes(CAICAY)) + geom_histogram(colour= 'blue')
+        
+        
+        
+CLIMAS DEL MUNDO
+
+      canva <- st.read(sdkcnñeaorvg)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
