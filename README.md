@@ -111,10 +111,12 @@ Ramos Cerna Alejandra Gianella
         pisac <- plot(Pp_pisco$fecha,Pp_pisco$PISAC, type = "l", col= 'blue',
                       main= 'Serie de Tiempo de la estación Pisac', xlab= 'Año',
                       ylab= 'Precipitación')
+![Rplot](https://user-images.githubusercontent.com/77855207/107093083-a8570380-67d2-11eb-9b43-c75ceefe0bc4.png)
 
         Paruro <- plot(Pp_pisco$fecha, Pp_pisco$PARURO, type = "l", col= 'blue',
                        main= 'Serie de Tiempo de la estación Paruro', xlab= 'Año',
                        ylab= 'Precipitación')
+![Rplot01](https://user-images.githubusercontent.com/77855207/107093144-c0c71e00-67d2-11eb-897d-ca071962eafc.png)
 
         colquepata <- plot(Pp_pisco$fecha,Pp_pisco$COLQUEPATA, type = "l", col= 'blue',
                            main= 'Serie de Tiempo de la estación Colquepata', xlab= 'Año',
@@ -123,6 +125,7 @@ Ramos Cerna Alejandra Gianella
         catca <-  plot(Pp_pisco$fecha,Pp_pisco$CCATCCA, type = "l", col= 'blue',
                        main= 'Serie de Tiempo de la estación Ccatcca', xlab= 'Año',
                        ylab= 'Precipitación')
+![CCATCCA](https://user-images.githubusercontent.com/77855207/107093233-e6542780-67d2-11eb-9fcb-f64554447656.png)
 
         caycay <- plot(Pp_pisco$fecha,Pp_pisco$CAICAY, type = "l", col= 'blue',
                        main= 'Serie de Tiempo de la estación Cay cay', xlab= 'Año',
