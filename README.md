@@ -60,6 +60,7 @@ Pp_pisco <- read.csv("DATA PISCO/PP MENSUAL/prep.csv", header = T, sep = ",") %>
 View(Pp_pisco)
 write.csv(Pp_pisco, "DATA EN CSV/PP ESTACIONES/pp.csv")
 colnames(Pp_pisco)
+
 tmin_pisco <- read.csv("DATA PISCO/TMIN/tmin.csv", header = T, sep = ",") %>%
   tibble() %>%
   dplyr::select(-X) %>%
@@ -67,6 +68,7 @@ tmin_pisco <- read.csv("DATA PISCO/TMIN/tmin.csv", header = T, sep = ",") %>%
 View(tmin_pisco)
 write.csv(tmin_pisco, "DATA EN CSV/PP ESTACIONES/tmin.csv")
 colnames(tmin_pisco)
+
 tmax_pisco <- read.csv("DATA PISCO/TMIN/tmin.csv", header = T, sep = ",") %>%
   tibble() %>%
   dplyr::select(-X) %>%
@@ -74,6 +76,7 @@ tmax_pisco <- read.csv("DATA PISCO/TMIN/tmin.csv", header = T, sep = ",") %>%
 View(tmax_pisco)
 write.csv(tmax_pisco, "DATA EN CSV/PP ESTACIONES/tmax.csv")
 colnames(tmax_pisco)
+
 tmedia_pisco <- read.csv("DATA EN CSV/PP ESTACIONES/tmedia.csv", header = T, sep = ",") %>%
   tibble() %>%
   dplyr::select(-X) %>%
@@ -90,15 +93,19 @@ pisac <- plot(Pp_pisco$fecha,Pp_pisco$PISAC, type = "l", col= 'blue',
 Paruro <- plot(Pp_pisco$fecha, Pp_pisco$PARURO, type = "l", col= 'blue',
                main= 'Serie de Tiempo de la estación Paruro', xlab= 'Años',
                ylab= 'Precipitación')
+               
 colquepata <- plot(Pp_pisco$fecha,Pp_pisco$COLQUEPATA, type = "l", col= 'blue',
                    main= 'Serie de Tiempo de la estación Colquepata', xlab= 'Años',
                    ylab= 'Precipitación')
+                   
 catca <-  plot(Pp_pisco$fecha,Pp_pisco$CCATCCA, type = "l", col= 'blue',
                main= 'Serie de Tiempo de la estación ccatcca', xlab= 'Años',
                ylab= 'Precipitación')
+               
 catca <-  plot(Pp_pisco$fecha,Pp_pisco$CCATCCA, type = "l", col= 'blue',
                main= 'Serie de Tiempo de la estación Ccatcca', xlab= 'Años',
                ylab= 'Precipitación')
+               
 caycay <- plot(Pp_pisco$fecha,Pp_pisco$CAICAY, type = "l", col= 'blue',
                main= 'Serie de Tiempo de la estación Caicay', xlab= 'Años',
                ylab= 'Precipitación')
