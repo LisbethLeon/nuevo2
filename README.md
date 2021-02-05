@@ -142,23 +142,28 @@ Cargamos la librería ggplot2
           geom_line() +
           geom_smooth(span = 0.4)
         names(Pp_pisco)
-        
+![Rplot05](https://user-images.githubusercontent.com/77855207/107094339-d6d5de00-67d4-11eb-8849-e7f59002a840.png)
+
         ggplot(Pp_pisco, aes(fecha, PARURO)) +
           geom_line() +
           geom_smooth(span = 0.4)
-          
+![Rplot06](https://user-images.githubusercontent.com/77855207/107094024-50210100-67d4-11eb-8b10-859c956ba309.png)
+
         ggplot(Pp_pisco, aes(fecha, COLQUEPATA)) +
           geom_line() +
           geom_smooth(span = 0.5)
-          
+![Rplot07](https://user-images.githubusercontent.com/77855207/107094095-6dee6600-67d4-11eb-8b0c-9e0b5790c19f.png)
+ 
         ggplot(Pp_pisco, aes(fecha, CAICAY)) +
           geom_line() +
           geom_smooth(span = 0.5)
-          
+![Rplot08](https://user-images.githubusercontent.com/77855207/107094138-852d5380-67d4-11eb-89e2-bbb0c74596cb.png)
+
         ggplot(Pp_pisco, aes(fecha, CCATCCA)) +
           geom_line() +
           geom_smooth(span = 0.5)
-          
+![Rplot09](https://user-images.githubusercontent.com/77855207/107094197-9bd3aa80-67d4-11eb-952c-2cd1d1abacd3.png)
+
 Con la función de ggplot nos ayudamos para crear historigramas de las frecuencias de temperaturas
 
         ggplot(tmedia_pisco, aes(PISAC)) + geom_histogram(colour= 'blue')
