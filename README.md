@@ -1,5 +1,6 @@
 # nuevo2
 Comenzaremos instalando las siguientes libreriías
+
 install.packages("raster")
 install.packages("ncdf4")
 library(raster)
