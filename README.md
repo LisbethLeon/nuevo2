@@ -167,7 +167,8 @@ Cargamos la librería ggplot2
 Con la función de ggplot nos ayudamos para crear historigramas de las frecuencias de temperaturas
 
         ggplot(tmedia_pisco, aes(PISAC)) + geom_histogram(colour= 'blue')
-        
+![Rplot10](https://user-images.githubusercontent.com/77855207/107097515-1bfd0e80-67db-11eb-9300-da919f603126.png)
+
         
         ggplot(tmedia_pisco, aes(PARURO)) + geom_histogram(colour= 'blue')
         
