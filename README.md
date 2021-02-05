@@ -1,9 +1,11 @@
 # nuevo2
-
+Comenzaremos instalando las siguientes libreriías
 install.packages("raster")
 install.packages("ncdf4")
 library(raster)
 library(ncdf4)
+
+Se coloca la dirección de tu dirección de trabajo
 
 setwd("C:/Users/LEO/Desktop/proyecto/FINAL")
 
