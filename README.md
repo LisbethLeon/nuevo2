@@ -1,158 +1,172 @@
-# nuevo2
-Comenzaremos instalando las siguientes libreriías
+# MAPA DE PRECIPITACIÓN CON DATOS PISCO
+En este trabajo nos centraremos en la comparación de datos de Senamhi de 5 estaciones del departamento de Cusco. Este trabajo fue realizado por los siguientes estudiantes
 
-install.packages("raster")
-install.packages("ncdf4")
-library(raster)
-library(ncdf4)
+Camacho Vega Mercedes
 
-Se coloca la dirección de tu dirección de trabajo
+Leon Chaiña Lisbeth Karola
 
-setwd("C:/Users/LEO/Desktop/proyecto/FINAL")
+Ramos Cerna Alejandra Gianella
 
-long_lat <- read.csv("estaciones_c.csv", header = T)
-View(long_lat)
-raster_pp   <- raster::brick("Prec.nc")
-raster_tmax <- raster::brick("Tmax.nc")
-raster_tmin <- raster::brick("Tmin.nc")
+1. COMENZAREMOS INSTALANDO NUESTRAS LIBRERÍAS
+  
+       install.packages("raster")
+       install.packages("ncdf4")
+       library(raster)
+       library(ncdf4)
 
-sp::coordinates(long_lat) <- ~XX+YY
+2. SE COLOCA LA DIRECCIÓN DE TU DIRECCIÓN DE TRABAJO
 
-raster::projection(long_lat) <- raster::projection(raster_pp)
-raster::projection(long_lat) <- raster::projection(raster_tmax)
-raster::projection(long_lat) <- raster::projection(raster_tmin)
+       setwd("C:/Users/LEO/Desktop/proyecto/FINAL")
+3. CARGAMOS EL ARCHIVO EN CSV Y 
 
-points_long_lat_pp <- raster::extract(raster_pp[[1]], long_lat, cellnumbers = T)[,1]
-data_long_lat_pp <- t(raster_pp[points_long_lat_pp])
-colnames(data_long_lat_pp) <- as.character(long_lat$NN)
-write.csv(data_long_lat_pp, "DATA PISCO/PP MENSUAL/prep.csv", quote = F)
+       long_lat <- read.csv("estaciones_c.csv", header = T)
+       View(long_lat)
+4. ENSAMBLAMOS LOS DATOS .nc DE NUESTRA DATA GRILLADA
 
-#TEMPERATURA MAXIMA
+        raster_pp   <- raster::brick("FINAL/DATA GRILLADA/Precipitacion/Mensual/Prec.nc")
+        raster_tmax <- raster::brick("FINAL/DATA GRILLADA/Temperatura/Mensual/Tmax.nc")
+        raster_tmin <- raster::brick("FINAL/DATA GRILLADA/Temperatura/Mensual/Tmin.nc")
 
-points_long_lat_tmax <- raster::extract(raster_tmax[[1]], long_lat, cellnumbers = T)[,1]
-data_long_lat_tmax <- t(raster_tmax[points_long_lat_tmax])
-colnames(data_long_lat_tmax) <- as.character(long_lat$NN)
-write.csv(data_long_lat_tmax, "DATA PISCO/TMAX/tmax.csv", quote = F)
+5. ASIGNAMOS LAS COORDENADAS
 
-#TEMPERATURA MINIMA
+        sp::coordinates(long_lat) <- ~XX+YY
 
-points_long_lat_tmin <- raster::extract(raster_tmin[[1]], long_lat, cellnumbers = T)[,1]
-data_long_lat_tmin <- t(raster_tmin[points_long_lat_tmin])
-colnames(data_long_lat_tmin) <- as.character(long_lat$NN)
-write.csv(data_long_lat_tmin, "DATA PISCO/TMIN/tmin.csv", quote = F)
+        raster::projection(long_lat) <- raster::projection(raster_pp)
+        raster::projection(long_lat) <- raster::projection(raster_tmax)
+        raster::projection(long_lat) <- raster::projection(raster_tmin)
 
-#TEMPERATURA MEDIA
+6. LEEMOS LA PRECIPITACION
 
-tmedia <- (data_long_lat_tmax+data_long_lat_tmin)/2
-write.csv(tmedia, "DATA EN CSV/PP ESTACIONES/tmedia.csv", quote = F)
+        points_long_lat_pp <- raster::extract(raster_pp[[1]], long_lat, cellnumbers = T)[,1]
+        data_long_lat_pp <- t(raster_pp[points_long_lat_pp])
+        colnames(data_long_lat_pp) <- as.character(long_lat$NN)
+        write.csv(data_long_lat_pp, "FINAL/DATA PISCO/PP MENSUAL/prep.csv", quote = F)
 
+7. LEEMOS LAS TEMPERATURAS
 
+        #TEMPERATURA MAXIMA
 
-#######################################################################################################################
-install.packages("tidyverse")
-install.packages("ggplot2")
-install.packages("dplyr")
-library(tidyverse)
-library(ggplot2)
-library(dplyr)
+        points_long_lat_tmax <- raster::extract(raster_tmax[[1]], long_lat, cellnumbers = T)[,1]
+        data_long_lat_tmax <- t(raster_tmax[points_long_lat_tmax])
+        colnames(data_long_lat_tmax) <- as.character(long_lat$NN)
+        write.csv(data_long_lat_tmax, "FINAL/DATA PISCO/TMAX/tmax.csv", quote = F)
 
-Pp_pisco <- read.csv("DATA PISCO/PP MENSUAL/prep.csv", header = T, sep = ",") %>%
-  tibble() %>%
-  dplyr::select(-X) %>%
-  mutate(fecha = seq(as.Date("1981-01-01"), as.Date("2016-12-01"), by = "month"))
-View(Pp_pisco)
-write.csv(Pp_pisco, "DATA EN CSV/PP ESTACIONES/pp.csv")
-colnames(Pp_pisco)
+        #TEMPERATURA MINIMA
 
-tmin_pisco <- read.csv("DATA PISCO/TMIN/tmin.csv", header = T, sep = ",") %>%
-  tibble() %>%
-  dplyr::select(-X) %>%
-  mutate(fecha = seq(as.Date("1981-01-01"), as.Date("2016-12-01"), by = "month"))
-View(tmin_pisco)
-write.csv(tmin_pisco, "DATA EN CSV/PP ESTACIONES/tmin.csv")
-colnames(tmin_pisco)
+        points_long_lat_tmin <- raster::extract(raster_tmin[[1]], long_lat, cellnumbers = T)[,1]
+        data_long_lat_tmin <- t(raster_tmin[points_long_lat_tmin])
+        colnames(data_long_lat_tmin) <- as.character(long_lat$NN)
+        write.csv(data_long_lat_tmin, "FINAL/DATA PISCO/TMIN/tmin.csv", quote = F)
 
-tmax_pisco <- read.csv("DATA PISCO/TMIN/tmin.csv", header = T, sep = ",") %>%
-  tibble() %>%
-  dplyr::select(-X) %>%
-  mutate(fecha = seq(as.Date("1981-01-01"), as.Date("2016-12-01"), by = "month"))
-View(tmax_pisco)
-write.csv(tmax_pisco, "DATA EN CSV/PP ESTACIONES/tmax.csv")
-colnames(tmax_pisco)
+        #TEMPERATURA MEDIA
 
-tmedia_pisco <- read.csv("DATA EN CSV/PP ESTACIONES/tmedia.csv", header = T, sep = ",") %>%
-  tibble() %>%
-  dplyr::select(-X) %>%
-  mutate(fecha = seq(as.Date("1981-01-01"), as.Date("2016-12-01"), by = "month"))
-View(tmedia_pisco)
-write.csv(tmedia_pisco, "DATA EN CSV/PP ESTACIONES/tmedia.csv")
-colnames(tmedia_pisco)
+        tmedia <- (data_long_lat_tmax+data_long_lat_tmin)/2
+        write.csv(tmedia, "FINAL/DATA PISCO/tmedia.csv", quote = F)
 
-########################################################################################################################
-pisac <- plot(Pp_pisco$fecha,Pp_pisco$PISAC, type = "l", col= 'blue',
-              main= 'Serie de Tiempo de la estación pisac', xlab= 'Años',
-              ylab= 'Precipitación')
+8. INSTALAMOS LAS LIBRERÍAS
 
-Paruro <- plot(Pp_pisco$fecha, Pp_pisco$PARURO, type = "l", col= 'blue',
-               main= 'Serie de Tiempo de la estación Paruro', xlab= 'Años',
-               ylab= 'Precipitación')
-               
-colquepata <- plot(Pp_pisco$fecha,Pp_pisco$COLQUEPATA, type = "l", col= 'blue',
-                   main= 'Serie de Tiempo de la estación Colquepata', xlab= 'Años',
-                   ylab= 'Precipitación')
-                   
-catca <-  plot(Pp_pisco$fecha,Pp_pisco$CCATCCA, type = "l", col= 'blue',
-               main= 'Serie de Tiempo de la estación ccatcca', xlab= 'Años',
-               ylab= 'Precipitación')
-               
-catca <-  plot(Pp_pisco$fecha,Pp_pisco$CCATCCA, type = "l", col= 'blue',
-               main= 'Serie de Tiempo de la estación Ccatcca', xlab= 'Años',
-               ylab= 'Precipitación')
-               
-caycay <- plot(Pp_pisco$fecha,Pp_pisco$CAICAY, type = "l", col= 'blue',
-               main= 'Serie de Tiempo de la estación Caicay', xlab= 'Años',
-               ylab= 'Precipitación')
+        install.packages("tidyverse")
+        install.packages("ggplot2")
+        install.packages("dplyr")
+        library(tidyverse)
+        library(ggplot2)
+        library(dplyr)
+        
+9. ASIGNACIÓN DE SERIES TEMPORALES PARA LAS PRECIPITACIONES Y TEMPERATURAS, SE ASIGNA DESDE 1981 HASTA EL 2016 DEBIDO A LA DISTRIBUCIÓN TEMPORAL DE LOS DATOS
 
-########################################
-#########graficas avanzadas###########
-########################################
-####precipitacion de nuestras 5 estaciones
+        Pp_pisco <- read.csv("FINAL/DATA PISCO/PP MENSUAL/prep.csv", header = T, sep = ",") %>%
+          tibble() %>%
+          dplyr::select(-X) %>%
+          mutate(fecha = seq(as.Date("1981-01-01"), as.Date("2016-12-01"), by = "month"))
+        View(Pp_pisco)
+        write.csv(Pp_pisco, "FINAL/DATA EN CSV/PP ESTACIONES/pp.csv")
+        colnames(Pp_pisco)
 
-library(ggplot2)
+        tmin_pisco <- read.csv("FINAL/DATA PISCO/TMIN/tmin.csv", header = T, sep = ",") %>%
+          tibble() %>%
+          dplyr::select(-X) %>%
+          mutate(fecha = seq(as.Date("1981-01-01"), as.Date("2016-12-01"), by = "month"))
+        View(tmin_pisco)
+        write.csv(tmin_pisco, "FINAL/DATA EN CSV/PP ESTACIONES/tmin.csv")
+        colnames(tmin_pisco)
 
-ggplot(Pp_pisco, aes(fecha, PISAC)) +
-  geom_line() +
-  geom_smooth(span = 0.4)
-names(Pp_pisco)
-ggplot(Pp_pisco, aes(fecha, PARURO)) +
-  geom_line() +
-  geom_smooth(span = 0.4)
-ggplot(Pp_pisco, aes(fecha, COLQUEPATA)) +
-  geom_line() +
-  geom_smooth(span = 0.5)
-ggplot(Pp_pisco, aes(fecha, CAICAY)) +
-  geom_line() +
-  geom_smooth(span = 0.5)
-ggplot(Pp_pisco, aes(fecha, CCATCCA)) +
-  geom_line() +
-  geom_smooth(span = 0.5)
+        tmax_pisco <- read.csv("DATA PISCO/TMAX/tmax.csv", header = T, sep = ",") %>%
+          tibble() %>%
+          dplyr::select(-X) %>%
+          mutate(fecha = seq(as.Date("1981-01-01"), as.Date("2016-12-01"), by = "month"))
+        View(tmax_pisco)
+        write.csv(tmax_pisco, "DATA EN CSV/PP ESTACIONES/tmax.csv")
+        colnames(tmax_pisco)
 
-###########Poligonos de frecuencia para temperaturas
-#Pisac
-ggplot(tmedia_pisco, aes(PISAC)) + geom_histogram(colour= 'blue')
-ggplot(tmedia_pisco, aes(PARURO)) + geom_histogram(colour= 'blue')
-ggplot(tmedia_pisco, aes(COLQUEPATA)) + geom_histogram(colour= 'blue')
-ggplot(tmedia_pisco, aes(CCATCCA)) + geom_histogram(colour= 'blue')
-ggplot(tmedia_pisco, aes(CAICAY)) + geom_histogram(colour= 'blue')
+        tmedia_pisco <- read.csv("FINAL/DATA PISCO/tmedia.csv", header = T, sep = ",") %>%
+          tibble() %>%
+          dplyr::select(-X) %>%
+          mutate(fecha = seq(as.Date("1981-01-01"), as.Date("2016-12-01"), by = "month"))
+        View(tmedia_pisco)
+        write.csv(tmedia_pisco, "FINAL/DATA EN CSV/PP ESTACIONES/tmedia.csv")
+        colnames(tmedia_pisco)
+        
+10. GRAFICAS CON R NATIVO DE LOS 5 CENTROS HIDROMETEOROLÓGICOS
 
+        pisac <- plot(Pp_pisco$fecha,Pp_pisco$PISAC, type = "l", col= 'blue',
+                      main= 'Serie de Tiempo de la estación Pisac', xlab= 'Año',
+                      ylab= 'Precipitación')
 
-ggplot(Pp_pisco, aes(fecha ,PISAC)) +
-  geom_path(colour = "green")
-ggplot(Pp_pisco, aes(fecha ,PARURO)) +
-  geom_path(colour = "green")
-ggplot(Pp_pisco, aes(fecha ,COLQUEPATA)) +
-  geom_path(colour = "green")
-ggplot(Pp_pisco, aes(fecha ,CCATCCA)) +
-  geom_path(colour = "green")
-ggplot(Pp_pisco, aes(fecha ,CAICAY)) +
-  geom_path(colour = "green")
+        Paruro <- plot(Pp_pisco$fecha, Pp_pisco$PARURO, type = "l", col= 'blue',
+                       main= 'Serie de Tiempo de la estación Paruro', xlab= 'Año',
+                       ylab= 'Precipitación')
+
+        colquepata <- plot(Pp_pisco$fecha,Pp_pisco$COLQUEPATA, type = "l", col= 'blue',
+                           main= 'Serie de Tiempo de la estación Colquepata', xlab= 'Año',
+                           ylab= 'Precipitación')
+
+        catca <-  plot(Pp_pisco$fecha,Pp_pisco$CCATCCA, type = "l", col= 'blue',
+                       main= 'Serie de Tiempo de la estación Ccatcca', xlab= 'Año',
+                       ylab= 'Precipitación')
+
+        caycay <- plot(Pp_pisco$fecha,Pp_pisco$CAICAY, type = "l", col= 'blue',
+                       main= 'Serie de Tiempo de la estación Cay cay', xlab= 'Año',
+                       ylab= 'Precipitación')
+
+11. GRAFICAS AVANZADAS DE LOS 5 CENTROS HIDROMETEOROLÓGICOS
+Cargamos la librería ggplot2
+
+        library(ggplot2)
+
+        ggplot(Pp_pisco, aes(fecha, PISAC)) +
+          geom_line() +
+          geom_smooth(span = 0.4)
+        names(Pp_pisco)
+        
+        ggplot(Pp_pisco, aes(fecha, PARURO)) +
+          geom_line() +
+          geom_smooth(span = 0.4)
+          
+        ggplot(Pp_pisco, aes(fecha, COLQUEPATA)) +
+          geom_line() +
+          geom_smooth(span = 0.5)
+          
+        ggplot(Pp_pisco, aes(fecha, CAICAY)) +
+          geom_line() +
+          geom_smooth(span = 0.5)
+          
+        ggplot(Pp_pisco, aes(fecha, CCATCCA)) +
+          geom_line() +
+          geom_smooth(span = 0.5)
+          
+Con la función de ggplot nos ayudamos para crear historigramas de las frecuencias de temperaturas
+
+        ggplot(tmedia_pisco, aes(PISAC)) + geom_histogram(colour= 'blue')
+        
+        
+        ggplot(tmedia_pisco, aes(PARURO)) + geom_histogram(colour= 'blue')
+        
+        
+        ggplot(tmedia_pisco, aes(COLQUEPATA)) + geom_histogram(colour= 'blue')
+        
+        
+        ggplot(tmedia_pisco, aes(CCATCCA)) + geom_histogram(colour= 'blue')
+        
+        
+        ggplot(tmedia_pisco, aes(CAICAY)) + geom_histogram(colour= 'blue')
+
