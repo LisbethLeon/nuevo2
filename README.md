@@ -3,6 +3,8 @@ En este trabajo nos centraremos en la comparación de datos de Senamhi de 5 esta
 
 Camacho Vega Mercedes
 
+Huayllani Panuera Dialdina Beatriz
+
 Leon Chaiña Lisbeth Karola
 
 Ramos Cerna Alejandra Gianella
@@ -134,6 +136,8 @@ Ramos Cerna Alejandra Gianella
 ![Rplot04](https://user-images.githubusercontent.com/77855207/107093550-6da19b00-67d3-11eb-9dfe-f3ec9e07cffa.png)
 
 11. GRAFICAS AVANZADAS DE LOS 5 CENTROS HIDROMETEOROLÓGICOS
+
+
 Cargamos la librería ggplot2
 
         library(ggplot2)
