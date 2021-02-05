@@ -3,8 +3,6 @@ En este trabajo nos centraremos en la comparación de datos de Senamhi de 5 esta
 
 Camacho Vega Mercedes
 
-Huayllani Panuera Dialdina Beatriz
-
 Leon Chaiña Lisbeth Karola
 
 Ramos Cerna Alejandra Gianella
