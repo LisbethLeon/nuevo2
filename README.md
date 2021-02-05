@@ -86,6 +86,7 @@ colnames(tmedia_pisco)
 pisac <- plot(Pp_pisco$fecha,Pp_pisco$PISAC, type = "l", col= 'blue',
               main= 'Serie de Tiempo de la estación pisac', xlab= 'Años',
               ylab= 'Precipitación')
+
 Paruro <- plot(Pp_pisco$fecha, Pp_pisco$PARURO, type = "l", col= 'blue',
                main= 'Serie de Tiempo de la estación Paruro', xlab= 'Años',
                ylab= 'Precipitación')
