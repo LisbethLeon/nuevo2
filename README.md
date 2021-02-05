@@ -179,6 +179,7 @@ Con la función de ggplot nos ayudamos para crear historigramas de las frecuenci
 ![Rplot13](https://user-images.githubusercontent.com/77855207/107097931-0e945400-67dc-11eb-81ab-5c9e0f9f5971.png)
 
         ggplot(tmedia_pisco, aes(CAICAY)) + geom_histogram(colour= 'blue')
-![Rplot13](https://user-images.githubusercontent.com/77855207/107097931-0e945400-67dc-11eb-81ab-5c9e0f9f5971.png)  
+![Rplot14](https://user-images.githubusercontent.com/77855207/107097978-2075f700-67dc-11eb-8358-9ad045d7da28.png)
+
 
 
