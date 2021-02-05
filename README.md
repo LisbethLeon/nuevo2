@@ -121,6 +121,7 @@ Ramos Cerna Alejandra Gianella
         colquepata <- plot(Pp_pisco$fecha,Pp_pisco$COLQUEPATA, type = "l", col= 'blue',
                            main= 'Serie de Tiempo de la estación Colquepata', xlab= 'Año',
                            ylab= 'Precipitación')
+![Rplot02](https://user-images.githubusercontent.com/77855207/107093489-51056300-67d3-11eb-8c33-90ee9f0eb9eb.png)
 
         catca <-  plot(Pp_pisco$fecha,Pp_pisco$CCATCCA, type = "l", col= 'blue',
                        main= 'Serie de Tiempo de la estación Ccatcca', xlab= 'Año',
@@ -130,6 +131,7 @@ Ramos Cerna Alejandra Gianella
         caycay <- plot(Pp_pisco$fecha,Pp_pisco$CAICAY, type = "l", col= 'blue',
                        main= 'Serie de Tiempo de la estación Cay cay', xlab= 'Año',
                        ylab= 'Precipitación')
+![Rplot04](https://user-images.githubusercontent.com/77855207/107093550-6da19b00-67d3-11eb-9dfe-f3ec9e07cffa.png)
 
 11. GRAFICAS AVANZADAS DE LOS 5 CENTROS HIDROMETEOROLÓGICOS
 Cargamos la librería ggplot2
